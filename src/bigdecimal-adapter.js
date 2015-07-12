@@ -5,8 +5,6 @@
 var identity = require('lodash.identity');
 var bigdecimal = require('bigdecimal');
 
-console.log(bigdecimal.MathContext);
-
 module.exports = {
   getInstance: getInstance,
   getPrecision: getPrecision,
