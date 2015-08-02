@@ -4,7 +4,7 @@
 
 require('should');
 
-var decimalFactory = require('linear-arbitrary-precision');
+var decimalFactory = require('arbitrary-precision');
 var adapter = require('../src/bigdecimal-adapter');
 
 describe('linear arbitrary precision with bigdecimal', function() {
@@ -43,6 +43,11 @@ describe('linear arbitrary precision with bigdecimal', function() {
 
     it('should have a div method', function() {
       new Decimal('0.3').div(new Decimal('0.2')).toString().should.be.exactly('1.5');
+    });
+
+    it('should have a pow method with support for ints only', function() {
+      new Decimal('2').pow(new Decimal('3')).valueOf().should.be.exactly('8');
+      new Decimal('81').pow(new Decimal('1.5')).valueOf().should.not.be.exactly('729');
     });
   });
 

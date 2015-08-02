@@ -13,6 +13,7 @@ module.exports = {
   minus: minus,
   times: times,
   div: div,
+  pow: pow,
   toString: toString,
   valueOf: toString,
   parseInput: identity
@@ -42,6 +43,10 @@ function times(x, y) {
 
 function div(x, y) {
   return x.divide(y, precision, bigdecimal.BigDecimal.ROUND_HALF_UP).stripTrailingZeros();
+}
+
+function pow(x, n) {
+  return x.pow(Number(n.toString()));
 }
 
 function toString(x) {
